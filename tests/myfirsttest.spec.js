@@ -21,6 +21,9 @@ test('Launch Broswer', async({page})=>{
 
     await page.locator("button[type='submit']").click();
 
-    await expect(page).toHaveTitle('OrangeHRM');
+    await expect(page).toHaveURL(/dashboard/, { timeout: 15000 });
+    await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
+
+   // await expect(page).toHaveTitle('OrangeHRM');
    
     });
